@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dobytradecms-dev-81aab-authRole",
+      "UnauthRoleArn": "arn:aws:iam::735339530850:role/amplify-dobytradecms-dev-81aab-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::735339530850:role/amplify-dobytradecms-dev-81aab-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-dobytradecms-dev-81aab-deployment",
+      "UnauthRoleName": "amplify-dobytradecms-dev-81aab-unauthRole",
+      "StackName": "amplify-dobytradecms-dev-81aab",
+      "StackId": "arn:aws:cloudformation:eu-north-1:735339530850:stack/amplify-dobytradecms-dev-81aab/02f0a2c0-883e-11f0-a512-0a57e8c3f7b7",
+      "AmplifyAppId": "d3bcxl57deenk9"
+    },
+    "categories": {
+      "auth": {
+        "dobytradecms51ce8f78": {}
+      }
+    }
+  }
+}

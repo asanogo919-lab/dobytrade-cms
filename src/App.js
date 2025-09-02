@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
 
-function App() {
+import React from 'react';
+
+// Importations Amplify
+import { Amplify } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
+// Importation de la configuration générée par Amplify
+import awsExports from './aws-exports';
+
+// Configuration d'Amplify pour qu'il se connecte à notre backend
+Amplify.configure(awsExports);
+
+// Le composant App ne sera affiché QUE si l'utilisateur est connecté.
+// 'signOut' et 'user' sont fournis automatiquement par withAuthenticator.
+function App({ signOut, user }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Bonjour, {user.attributes.email} !</h1>
+      <p>Bienvenue sur le CMS Dobytrade.</p>
+      <button onClick={signOut}>Se déconnecter</button>
     </div>
   );
 }
 
-export default App;
+// withAuthenticator est un "Higher-Order Component" qui enveloppe notre App.
+// Il gère automatiquement l'affichage du formulaire de connexion/inscription
+// si l'utilisateur n'est pas authentifié.
+export default withAuthenticator(App);
