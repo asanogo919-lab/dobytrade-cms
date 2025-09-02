@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "dobytradecms51ce8f78_identitypool_51ce8f78",
+    "identityPoolName": "dobytradecmscb6fe703_identitypool_cb6fe703",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "dobytr51ce8f78",
-    "userPoolName": "dobytradecms51ce8f78_userpool_51ce8f78",
+    "resourceNameTruncated": "dobytrcb6fe703",
+    "userPoolName": "dobytradecmscb6fe703_userpool_cb6fe703",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -24,22 +24,27 @@
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "1",
     "userpoolClientWriteAttributes": [
       "email"
     ],
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "dobytr51ce8f78_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "dobytrcb6fe703_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "51ce8f78",
-    "resourceName": "dobytradecms51ce8f78",
+    "sharedId": "cb6fe703",
+    "resourceName": "dobytradecmscb6fe703cb6fe703",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
+    "useDefault": "manual",
+    "thirdPartyAuth": false,
     "usernameAttributes": [
       "email"
     ],
+    "userPoolGroups": false,
+    "adminQueries": true,
+    "triggers": {},
+    "hostedUI": false,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

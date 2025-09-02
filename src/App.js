@@ -18,12 +18,15 @@ Amplify.configure(awsExports);
 function App({ signOut, user }) {
   return (
     <div>
-      <h1>Bonjour, {user.attributes.email} !</h1>
+      <h1>
+        Bonjour, {user?.attributes?.email || "utilisateur"} !
+      </h1>
       <p>Bienvenue sur le CMS Dobytrade.</p>
       <button onClick={signOut}>Se déconnecter</button>
     </div>
   );
 }
+
 
 // withAuthenticator est un "Higher-Order Component" qui enveloppe notre App.
 // Il gère automatiquement l'affichage du formulaire de connexion/inscription
