@@ -1,6 +1,6 @@
 import React from 'react';
 import { Amplify } from 'aws-amplify';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
@@ -16,7 +16,7 @@ import Unauthorized from './pages/Unauthorized';
 
 Amplify.configure(awsExports);
 
-function App({ signOut, user }) {
+function AppContent({ signOut, user }) {
   // Fonction pour extraire les groupes de l'utilisateur
   const getUserGroups = () => {
     try {
@@ -75,6 +75,14 @@ function App({ signOut, user }) {
       </Layout>
     </Router>
   );
+}
+
+function App() {
+  const { signOut, user } = useAuthenticator((context) => [
+    context.signOut,
+    context.user,
+  ]);
+  return <AppContent signOut={signOut} user={user} />;
 }
 
 export default withAuthenticator(App);

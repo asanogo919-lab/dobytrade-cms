@@ -1,11 +1,10 @@
 import React from 'react';
 import {
   Box, Drawer, CssBaseline, AppBar, Toolbar, List, Typography,
-  ListItem, ListItemButton, ListItemIcon, ListItemText, Button
+  ListItem, ListItemButton, ListItemIcon, ListItemText
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-// Import des icônes
 import InventoryIcon from '@mui/icons-material/Inventory';
 import CreateIcon from '@mui/icons-material/Create';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
@@ -29,7 +28,7 @@ const Layout = ({ user, signOut, children }) => {
   };
 
   const userGroups = getUserGroups();
-  
+
   // Définition des liens de navigation avec permissions
   const navItems = [
     { 
@@ -79,15 +78,9 @@ const Layout = ({ user, signOut, children }) => {
         elevation={1}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div" color="text.primary" sx={{ flexGrow: 1 }}>
-            Dobytrade CMS
+          <Typography variant="h6" color="primary" sx={{ fontWeight: 'bold' }}>
+            Bonjour, {user?.username}
           </Typography>
-          <Typography sx={{ mr: 2 }} color="text.secondary">
-            {user?.attributes?.email}
-          </Typography>
-          <Button variant="outlined" color="primary" onClick={signOut}>
-            Se déconnecter
-          </Button>
         </Toolbar>
       </AppBar>
 
@@ -110,7 +103,6 @@ const Layout = ({ user, signOut, children }) => {
             DOBYTRADE
           </Typography>
         </Toolbar>
-        
         <List>
           {filteredNavItems.map((item) => (
             <ListItem 
@@ -119,7 +111,7 @@ const Layout = ({ user, signOut, children }) => {
               onClick={() => navigate(item.path)}
             >
               <ListItemButton selected={location.pathname === item.path}>
-                <ListItemIcon sx={{color: 'primary.main'}}>
+                <ListItemIcon sx={{ color: 'primary.main' }}>
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.text} />
