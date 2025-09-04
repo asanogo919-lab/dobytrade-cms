@@ -14,9 +14,11 @@ import {
   DialogActions,
   Paper
 } from '@mui/material';
-import { API } from 'aws-amplify';
+import { API } from '@aws-amplify/api-graphql'; // Modification ici
 import { listArticles } from '../graphql/queries';
 import { updateArticle } from '../graphql/mutations';
+
+// Le reste du code reste inchangé...
 
 const ContentValidation = () => {
   const [articles, setArticles] = useState([]);

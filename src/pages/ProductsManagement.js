@@ -15,11 +15,13 @@ import {
   DialogActions,
   Alert
 } from '@mui/material';
-import { API } from 'aws-amplify';
+import { API } from '@aws-amplify/api-graphql'; // Modification ici
 import { listProduits, createProduit, updateProduit, deleteProduit } from '../graphql/mutations';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+
+// Le reste du code reste inchangé...
 
 const ProductsManagement = () => {
   const [produits, setProduits] = useState([]);

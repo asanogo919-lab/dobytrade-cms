@@ -8,12 +8,13 @@ import {
   Card,
   CardContent
 } from '@mui/material';
-import { API } from 'aws-amplify';
+import { API } from '@aws-amplify/api-graphql'; // Modification ici
 import { listArticles } from '../graphql/queries';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
+// Le reste du code reste inchangé...
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [articles, setArticles] = useState([]);
