@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "dobytradecms",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authdobytradecmscb6fe703cb6fe703",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

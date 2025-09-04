@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "dobytradecmscb6fe703cb6fe703": {}
+      },
+      "api": {
+        "dobytradecms": {}
       }
     }
   }

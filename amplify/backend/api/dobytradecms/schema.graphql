@@ -1,0 +1,43 @@
+type Article
+  @model
+  @auth(
+    rules: [
+      # Les articles sont accessibles à tous les utilisateurs authentifiés, mais les opérations sont restreintes par rôle
+      { allow: groups, groups: ["redacteur", "validateurtechnique", "gestionnaireDB"] }
+    ]
+  ) {
+  id: ID!
+  titre: String!
+  contenu: String!
+  produitId: ID! @index(name: "byProduit") # Index pour pouvoir query par produit
+  statut: StatutArticle! # Nouveau champ pour gérer le statut
+  createdAt: AWSDateTime!
+  validatedAt: AWSDateTime
+  publishedAt: AWSDateTime
+  # Relation avec le produit
+  produit: Produit @belongsTo(fields: ["produitId"])
+}
+
+type Produit
+  @model
+  @auth(
+    rules: [
+      # Seuls les gestionnaires de DB et les rédacteurs peuvent voir les produits
+      { allow: groups, groups: ["gestionnaireDB", "redacteur"] }
+    ]
+  ) {
+  id: ID!
+  nom: String!
+  description: String!
+  prix: Float!
+  # Articles associés à ce produit
+  articles: [Article] @hasMany(indexName: "byProduit", fields: ["id"])
+}
+
+enum StatutArticle {
+  BROUILLON
+  EN_VALIDATION
+  VALIDE
+  PUBLIE
+  REJETE
+}
