@@ -10,12 +10,10 @@ import {
   Grid,
   Chip
 } from '@mui/material';
-import { API } from '@aws-amplify/api-graphql'; // Modification ici
+import { API } from 'aws-amplify'; // Retour à l'import original
 import { listArticles } from '../graphql/queries';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-
-// Le reste du code reste inchangé...
 
 const PublishedContent = () => {
   const [articles, setArticles] = useState([]);
